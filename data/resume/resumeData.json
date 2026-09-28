@@ -1,0 +1,91 @@
+{
+    "personalDetails": {
+        "age": null,
+        "phone": "+48 xxx xxx xxx",
+        "photo": {
+            "shape": "squareRounded",
+            "imageId": "avatar/weBUSatDRNALZisH65w2L.jpeg",
+            "originalWidth": 1024,
+            "originalHeight": 1024
+        },
+        "social": {
+            "github": ""
+        },
+        "address": "xxx, Poland",
+        "website": "",
+        "birthday": {
+            "day": null,
+            "year": null,
+            "month": null
+        },
+        "fullName": "Bartosz Sienkiewicz",
+        "jobTitle": "APPLICATION SUPPORT ENGINEER",
+        "detailsOrder": [
+            "displayEmail",
+            "phone",
+            "address"
+        ],
+        "displayEmail": "xxx@gmail.com"
+    },
+    "sections": [
+        {
+            "id": "911d75d6-3320-4534-88b0-943943f35123123123",
+            "sectionType": "experience",
+            "displayName": "Professional Experience",
+            "defaultName": "Experience",
+            "iconKey": "briefcase",
+            "entries": [
+                {
+                    "id": "911d75d6-3320-4534-88b0-943943f35a34",
+                    "employer": "ACME",
+                    "isVisible": true,
+                    "jobTitle": "Customer Support Engineer",
+                    "location": "XX, Poland",
+                    "createdAt": "2026-09-20T20:35:04.075Z",
+                    "updatedAt": "2026-09-24T18:17:31.913Z",
+                    "endDate": "09/2026",
+                    "description": "<ul><li><p>First bullet point.</p></li><li><p>Second bullet point.</p></li></ul>",
+                    "employerLink": "",
+                    "startDate": "09/2024",
+                    "isCurrent": false
+                },
+                {
+                    "id": "911d75d6-3320-4534-88b0-943943f35a342",
+                    "employer": "ACME2",
+                    "isVisible": true,
+                    "jobTitle": "Customer Support Engineer",
+                    "location": "XX, Poland",
+                    "createdAt": "2026-09-20T20:35:04.075Z",
+                    "updatedAt": "2026-09-24T18:17:31.913Z",
+                    "endDate": "09/2026",
+                    "description": "<ul><li><p>First bullet point.</p></li><li><p>Second bullet point.</p></li></ul>",
+                    "employerLink": "",
+                    "startDate": "09/2024",
+                    "isCurrent": false
+                }
+            ]
+        },
+        {
+            "id": "911d75d6-3320-4534-88b0-943943f3512312123123123123",
+            "sectionType": "education",
+            "displayName": "Education",
+            "defaultName": "Education",
+            "iconKey": "graduation-cap",
+            "entries": [
+                {
+                    "id": "911d75d6-3320-4534-88b0-943943f35a33333",
+                    "school": "ACME",
+                    "isVisible": true,
+                    "degree": "Bachelor of Science",
+                    "field": "Computer Science",
+                    "location": "XX, Poland",
+                    "createdAt": "2026-09-20T20:35:04.075Z",
+                    "updatedAt": "2026-09-24T18:17:31.913Z",
+                    "endDate": "09/2026",
+                    "description": "<ul><li><p>First bullet point.</p></li><li><p>Second bullet point.</p></li></ul>",
+                    "startDate": "09/2024"
+                }
+            ]
+        }
+    ]
+}
