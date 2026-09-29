@@ -3,7 +3,11 @@ export const config = {
     width: 800,
     height: 800 * (297 / 210),
   },
-  editor: {
-    padding: 32,
+  display: {
+    padding: {
+        y: 32,
+        x: 16
+    },
+    pageGap: 12,
   }
 };
