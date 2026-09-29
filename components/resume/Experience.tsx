@@ -1,5 +1,23 @@
-import { ExperienceEntry } from '@/types/resume'
-import React from 'react'
+import { BaseSection } from '@/types/resume'
+
+export type ExperienceEntry = {
+    id: string;
+    jobTitle: string | null;
+    employer: string | null;
+    employerLink: string | null;
+    startDate: string | null;
+    endDate: string | null;
+    description: string | null;
+    location: string | null;
+    isCurrent: boolean;
+    isVisible: boolean;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export type ExperienceSection = BaseSection<ExperienceEntry> & {
+    sectionType: "experience";
+}
 
 const Experience = ({ entry }: { entry: ExperienceEntry }) => {
     return (

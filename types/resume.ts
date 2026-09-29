@@ -1,3 +1,6 @@
+import { EducationEntry, EducationSection } from "@/components/resume/Education";
+import { ExperienceEntry, ExperienceSection } from "@/components/resume/Experience";
+
 export type PersonalDetailKey =
     | "displayEmail"
     | "phone"
@@ -39,57 +42,14 @@ export type SectionType =
     | "languages"
     | "custom";
 
-export type BaseSection = {
+export type BaseSection<TEntry> = {
     id: string;
     sectionType: SectionType;
     displayName: string | null;
     defaultName: string;
     iconKey: string;
-    entries: ExperienceEntry[];
+    entries: TEntry[];
 }
-
-// ========== EXPERIENCE ==========
-
-export type ExperienceEntry = {
-    id: string;
-    jobTitle: string | null;
-    employer: string | null;
-    employerLink: string | null;
-    startDate: string | null;
-    endDate: string | null;
-    description: string | null;
-    location: string | null;
-    isCurrent: boolean;
-    isVisible: boolean;
-    createdAt: string;
-    updatedAt: string;
-}
-
-export type ExperienceSection = BaseSection & {
-    sectionType: "experience";
-    entries: ExperienceEntry[];
-}
-
-// ========== EDUCATION ==========
-
-export type EducationEntry = {
-    id: string;
-    school: string | null;
-    degree: string | null;
-    field: string | null;
-    startDate: string | null;
-    endDate: string | null;
-    description: string | null;
-    location: string | null;
-    createdAt: string;
-    updatedAt: string;
-    isVisible: boolean;
-};
-
-export type EducationSection = BaseSection & {
-    sectionType: "education";
-    entries: EducationEntry[];
-};
 
 export type ResumeSection =
     | ExperienceSection
