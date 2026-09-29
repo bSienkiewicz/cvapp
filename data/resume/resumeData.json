@@ -44,7 +44,10 @@
                     "createdAt": "2026-09-20T20:35:04.075Z",
                     "updatedAt": "2026-09-24T18:17:31.913Z",
                     "endDate": "09/2026",
-                    "description": "<ul><li><p>First bullet point.</p></li><li><p>Second bullet point.</p></li></ul>",
+                    "description": {
+                        "type": "richText",
+                        "content": "Description of <b><i>the job</i></b>"
+                    },
                     "employerLink": "",
                     "startDate": "09/2024",
                     "isCurrent": false
@@ -58,7 +61,13 @@
                     "createdAt": "2026-09-20T20:35:04.075Z",
                     "updatedAt": "2026-09-24T18:17:31.913Z",
                     "endDate": "09/2026",
-                    "description": "<ul><li><p>First bullet point.</p></li><li><p>Second bullet point.</p></li></ul>",
+                    "description": {
+                        "type": "richBulletedList",
+                        "content": [
+                            "First <b>bullet</b> point.",
+                            "Second bullet point."
+                        ]
+                    },
                     "employerLink": "",
                     "startDate": "09/2024",
                     "isCurrent": false
@@ -82,8 +91,34 @@
                     "createdAt": "2026-09-20T20:35:04.075Z",
                     "updatedAt": "2026-09-24T18:17:31.913Z",
                     "endDate": "09/2026",
-                    "description": "<ul><li><p>First bullet point.</p></li><li><p>Second bullet point.</p></li></ul>",
+                    "description": {
+                        "type": "richText",
+                        "content": "Description of <b><i>the education</i></b>"
+                    },
                     "startDate": "09/2024"
+                }
+            ]
+        },
+        {
+            "id": "911d75d6-3320-4534-88b0-943943f35123121231231231213333",
+            "sectionType": "skills",
+            "displayName": "Skills",
+            "defaultName": "Skills",
+            "iconKey": "cogs",
+            "entries": [
+                {
+                    "id": "911d75d6-3320-4534-88b0-943943f35a33333",
+                    "skillName": "Languages & Development",
+                    "skillDescription": "TypeScript/JavaScript, C#, React, Next.js, Express.js, Python, SQL",
+                    "isVisible": true,
+                    "proficiencyLevel": 2
+                },
+                {
+                    "id": "911d75d6-3320-4534-88b0-943943f35a333223",
+                    "skillName": "Cloud & Infrastructure",
+                    "skillDescription": "AWS, Docker, Terraform, Git, Linux, TeamCity, <u>Jenkins</u>, Spacelift",
+                    "isVisible": true,
+                    "proficiencyLevel": 4
                 }
             ]
         }

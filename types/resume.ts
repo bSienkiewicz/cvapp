@@ -1,5 +1,6 @@
-import { EducationEntry, EducationSection } from "@/components/resume/Education";
-import { ExperienceEntry, ExperienceSection } from "@/components/resume/Experience";
+import { EducationEntry, EducationSection } from "@/components/resume/EducationBlock";
+import { ExperienceEntry, ExperienceSection } from "@/components/resume/ExperienceBlock";
+import { SkillsSection } from "@/components/resume/SkillsBlock";
 
 export type PersonalDetailKey =
     | "displayEmail"
@@ -53,7 +54,8 @@ export type BaseSection<TEntry> = {
 
 export type ResumeSection =
     | ExperienceSection
-    | EducationSection;
+    | EducationSection
+    | SkillsSection;
 
 export type ResumeData = {
     personalDetails: PersonalDetails

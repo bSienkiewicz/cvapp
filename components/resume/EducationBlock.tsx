@@ -7,7 +7,10 @@ export type EducationEntry = {
     field: string | null;
     startDate: string | null;
     endDate: string | null;
-    description: string | null;
+    description: {
+        type: "richText" | "richBulletedList";
+        content: string | string[];
+    }
     location: string | null;
     createdAt: string;
     updatedAt: string;
@@ -30,7 +33,16 @@ const Education = ({ entry }: { entry: EducationEntry }) => {
             <p className="text-gray-500">
                 {entry.startDate} - {entry.endDate || "Present"}
             </p>
-            <p>{entry.description}</p>
+            {entry.description.type === "richText" && (
+                <p dangerouslySetInnerHTML={{ __html: entry.description.content }} />
+            )}
+            {entry.description.type === "richBulletedList" && typeof entry.description.content === "object" && (
+                <ul className="list-disc">
+                    {entry.description.content.map((item, index) => (
+                        <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+                    ))}
+                </ul>
+            )}
         </div>
     )
 }
