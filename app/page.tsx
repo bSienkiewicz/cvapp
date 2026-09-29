@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen w-screen overflow-hidden font-sans">
+    <div className="h-screen w-screen overflow-hidden">
       {/* NAVBAR */}
       <nav className="h-16 flex items-center px-6 border-b">
         Navbar
