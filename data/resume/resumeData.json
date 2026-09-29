@@ -48,10 +48,12 @@
           "descriptionBlocks": [
             {
               "type": "text",
+              "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
               "type": "bullet",
+              "isVisible": true,
               "content": "First <b>bullet</b> point."
             }
           ],
@@ -71,10 +73,12 @@
           "descriptionBlocks": [
             {
               "type": "text",
+              "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
               "type": "bullet",
+              "isVisible": true,
               "content": "First <b>bullet</b> point."
             }
           ],
@@ -105,10 +109,12 @@
           "descriptionBlocks": [
             {
               "type": "text",
+              "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
               "type": "bullet",
+              "isVisible": true,
               "content": "First <b>bullet</b> point."
             }
           ],
@@ -130,10 +136,12 @@
           "descriptionBlocks": [
             {
               "type": "text",
+              "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
               "type": "bullet",
+              "isVisible": true,
               "content": "First <b>bullet</b> point."
             }
           ],
