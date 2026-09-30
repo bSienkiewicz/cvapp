@@ -1,7 +1,3 @@
-import { EducationEntry, EducationSection } from "@/components/resume/display/EducationBlock";
-import { ExperienceEntry, ExperienceSection } from "@/components/resume/display/ExperienceBlock";
-import { SkillsSection } from "@/components/resume/display/SkillsBlock";
-
 export type PersonalDetailKey =
 	| "displayEmail"
 	| "phone"
@@ -43,15 +39,62 @@ export type SectionType =
 	| "languages"
 	| "custom";
 
-export type BaseSection<TEntry> = {
+export type DescriptionBlock = {
+	type: "text" | "bullet";
+	isVisible: boolean;
+	content: string;
+};
+
+export type ExperienceEntry = {
 	id: string;
-	sectionType: SectionType;
+	jobTitle: string | null;
+	employer: string | null;
+	employerLink: string | null;
+	startDate: string | null;
+	endDate: string | null;
+	descriptionBlocks: DescriptionBlock[];
+	location: string | null;
+	isCurrent: boolean;
+	isVisible: boolean;
+	createdAt: string;
+	updatedAt: string;
+};
+
+export type EducationEntry = {
+	id: string;
+	school: string | null;
+	degree: string | null;
+	field: string | null;
+	startDate: string | null;
+	endDate: string | null;
+	descriptionBlocks: DescriptionBlock[];
+	location: string | null;
+	createdAt: string;
+	updatedAt: string;
+	isVisible: boolean;
+};
+
+export type SkillEntry = {
+	id: string;
+	skillName: string;
+	descriptionBlocks: DescriptionBlock[];
+	isVisible: boolean;
+	proficiencyLevel: number | null;
+};
+
+export type BaseSection<TType extends SectionType, TEntry> = {
+	id: string;
+	sectionType: TType;
 	displayName: string | null;
 	defaultName: string;
 	iconKey: string;
 	displayIcon: boolean;
 	entries: TEntry[];
-}
+};
+
+export type ExperienceSection = BaseSection<"experience", ExperienceEntry>;
+export type EducationSection = BaseSection<"education", EducationEntry>;
+export type SkillsSection = BaseSection<"skills", SkillEntry>;
 
 export type ResumeSection =
 	| ExperienceSection

@@ -1,16 +1,4 @@
-import { BaseSection } from '@/types/resume'
-
-export type SkillEntry = {
-  id: string;
-  skillName: string;
-  descriptionBlocks: { type: string; content: string }[] | null;
-  isVisible: boolean;
-  proficiencyLevel: number | null;
-}
-
-export type SkillsSection = BaseSection<SkillEntry> & {
-  sectionType: "skills";
-};
+import type { SkillEntry } from '@/types/resume';
 
 const Skills = ({ entry }: { entry: SkillEntry }) => {
   return (

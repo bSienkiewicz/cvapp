@@ -1,25 +1,4 @@
-import { BaseSection } from '@/types/resume'
-
-export type EducationEntry = {
-  id: string;
-  school: string | null;
-  degree: string | null;
-  field: string | null;
-  startDate: string | null;
-  endDate: string | null;
-  descriptionBlocks: {
-    type: "text" | "bullet";
-    content: string;
-  }[] | null;
-  location: string | null;
-  createdAt: string;
-  updatedAt: string;
-  isVisible: boolean;
-};
-
-export type EducationSection = BaseSection<EducationEntry> & {
-  sectionType: "education";
-};
+import type { EducationEntry } from '@/types/resume';
 
 const Education = ({ entry }: { entry: EducationEntry }) => {
   return (

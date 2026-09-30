@@ -39,7 +39,7 @@ export default function Home() {
         <div className="grid grid-cols-[640px_minmax(0,1fr)] h-[calc(100vh-4rem)] min-h-0">
 
           {/* LEFT EDITOR */}
-          <aside className="shrink-0 flex-1 p-4  border-r">
+          <aside className="shrink-0 flex-1 p-4 border-r  overflow-auto">
             <ResumeEditor />
           </aside>
 

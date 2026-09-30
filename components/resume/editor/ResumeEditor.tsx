@@ -1,24 +1,45 @@
 import { Accordion } from '@/components/ui/accordion';
+import { removeHtmlTags } from '@/lib/utils';
+import type { ResumeSection } from '@/types/resume';
 import { useResume } from '../ResumeContext';
 import ResumeEditorCard from './ResumeEditorCard';
+import ExperienceSectionEditor from './ExperienceSectionEditor';
+
+function SectionEditorFields({ section }: { section: ResumeSection }) {
+  switch (section.sectionType) {
+    case 'experience':
+      return <ExperienceSectionEditor section={section} />;
+    case 'education':
+    case 'skills':
+      return (
+        <div className="space-y-2">
+          {section.entries.map((entry) => (
+            <div key={entry.id}>
+              {entry.descriptionBlocks.map((block, index) => (
+                <p key={index}>{removeHtmlTags(block.content)}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      );
+  }
+}
 
 const ResumeEditor = () => {
-  const { resumeData, setResumeData } = useResume();
+  const { resumeData } = useResume();
 
   return (
-      <Accordion defaultValue={["item-0"]} className="flex flex-col gap-2">
-        {resumeData.sections.map((section, idx) => (
-          <ResumeEditorCard
-            key={section.id}
-            idx={idx}
-            title={section.displayName}
-            type={section.sectionType}
-            icon={section.iconKey}
-            displayIcon={section.displayIcon}
-            entries={section.entries}
-          />  
-        ))}
-      </Accordion>
+    <Accordion defaultValue={["item-0"]} className="flex flex-col gap-2">
+      {resumeData.sections.map((section, idx) => (
+        <ResumeEditorCard
+          key={section.id}
+          idx={idx}
+          title={section.displayName || section.defaultName}
+        >
+          <SectionEditorFields section={section} />
+        </ResumeEditorCard>
+      ))}
+    </Accordion>
   )
 }
 
