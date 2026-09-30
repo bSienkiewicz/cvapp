@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, Pencil, Plus, Trash } from 'lucide-react';
+import { Item, ItemActions, ItemContent, ItemDescription, ItemGroup, ItemTitle } from '@/components/ui/item';
+import { ButtonGroup } from '@/components/ui/button-group';
 
 type VisibilityRowProps = {
   visible: boolean;
@@ -13,19 +15,27 @@ export default function VisibilityRow({ visible, label, onToggle, children }: Vi
   const actionLabel = `${visible ? 'Hide' : 'Show'} ${label} from resume`;
 
   return (
-    <div className={`flex items-start gap-1 ${visible ? '' : 'opacity-60'}`}>
+    <Item variant="default" className={`p-0 flex ${visible ? '' : 'opacity-60'} relative group hover:bg-muted`}>
       <Button
         type="button"
         variant="ghost"
-        size="icon-xs"
         aria-label={actionLabel}
         aria-pressed={visible}
+        className={'self-start'}
         title={actionLabel}
         onClick={onToggle}
       >
-        {visible ? <Eye /> : <EyeOff />}
+        {visible ? <Eye size={16} /> : <EyeOff size={16} />}
       </Button>
-      {children}
-    </div>
+      <ItemContent>
+        <ItemTitle>
+          {children}
+        </ItemTitle>
+      </ItemContent>
+      <ButtonGroup className='absolute top-0.5 right-0.5 opacity-0 group-hover:opacity-100'>
+        <Button variant="outline" size="sm"><Pencil size={16} /></Button>
+        <Button variant="outline" size="sm"><Trash size={16} className='text-red-900' /></Button>
+      </ButtonGroup>
+    </Item>
   );
 }

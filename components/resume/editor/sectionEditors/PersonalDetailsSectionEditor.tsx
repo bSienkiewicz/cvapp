@@ -35,7 +35,7 @@ export default function PersonalDetailsSectionEditor({ personalDetails }: Props)
           visible={isVisible('fullName')}
           onToggle={() => toggleVisibility('fullName')}
         >
-          <span>{personalDetails.fullName}</span>
+          {personalDetails.fullName}
         </VisibilityRow>
       )}
       {personalDetails.jobTitle && (
