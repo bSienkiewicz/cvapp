@@ -5,6 +5,7 @@ import { useResume } from '../ResumeContext';
 import ResumeEditorCard from './sectionEditors/ResumeEditorCard';
 import ExperienceSectionEditor from './sectionEditors/ExperienceSectionEditor';
 import ProfessionalSummarySectionEditor from './sectionEditors/ProfessionalSummarySectionEditor';
+import EducationSectionEditor from './sectionEditors/EducationSectionEditor';
 
 function SectionEditorFields({ section }: { section: ResumeSection }) {
   switch (section.sectionType) {
@@ -13,6 +14,7 @@ function SectionEditorFields({ section }: { section: ResumeSection }) {
     case 'summary':
       return <ProfessionalSummarySectionEditor section={section} />;
     case 'education':
+      return <EducationSectionEditor section={section} />;
     case 'skills':
       return (
         <div className="space-y-2">

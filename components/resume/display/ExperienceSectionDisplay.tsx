@@ -20,9 +20,9 @@ const ExperienceSectionDisplay = ({ entry }: { entry: ExperienceEntry }) => {
       {entry.jobDescription && entry.fieldVisibility?.jobDescription !== false && (
         <p dangerouslySetInnerHTML={{ __html: entry.jobDescription }} />
       )}
-      {entry.descriptionBullets?.filter((bullet) => bullet.isVisible).map((bullet, index) => {
+      {entry.descriptionBlocks?.filter((block) => block.isVisible).map((block, index) => {
         {
-          return <ul key={index}><li dangerouslySetInnerHTML={{ __html: bullet.content }} /></ul>;
+          return <ul key={index}><li dangerouslySetInnerHTML={{ __html: block.content }} /></ul>;
         }
       })}
     </div>

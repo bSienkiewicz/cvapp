@@ -1,23 +1,24 @@
 import type { EducationEntry } from '@/types/resume';
 
 const EducationSectionDisplay = ({ entry }: { entry: EducationEntry }) => {
+  const dateRange = [entry.startDate, entry.isCurrent ? 'Present' : entry.endDate]
+    .filter(Boolean)
+    .join(' - ');
+
   return (
     <div>
-      <h3 className="text-xl font-semibold">
-        {entry.degree} in {entry.field}
-      </h3>
+      {entry.fieldVisibility?.degree !== false && entry.degree && (
+        <h3 className="text-xl font-semibold">{entry.degree}</h3>
+      )}
       <p className="text-gray-500">
-        {entry.school} | {entry.location}
+        {entry.school}
+        {entry.fieldVisibility?.location !== false && entry.location ? ` | ${entry.location}` : ''}
       </p>
-      <p className="text-gray-500">
-        {entry.startDate} - {entry.endDate || "Present"}
-      </p>
+      {entry.fieldVisibility?.dates !== false && dateRange && (
+        <p className="text-gray-500">{dateRange}</p>
+      )}
       {entry.descriptionBlocks?.filter((block) => block.isVisible).map((block, index) =>
-        block.type === 'bullet' ? (
-          <ul key={index}><li dangerouslySetInnerHTML={{ __html: block.content }} /></ul>
-        ) : (
-          <p key={index} dangerouslySetInnerHTML={{ __html: block.content }} />
-        ),
+        <ul key={index}><li dangerouslySetInnerHTML={{ __html: block.content }} /></ul>
       )}
     </div>
   )

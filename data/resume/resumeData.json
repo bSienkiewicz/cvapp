@@ -81,14 +81,16 @@
           "createdAt": "2026-09-20T20:35:04.075Z",
           "updatedAt": "2026-09-24T18:17:31.913Z",
           "endDate": "09/2026",
-          "descriptionBullets": [
+          "descriptionBlocks": [
             {
+              "isBullet": false,
               "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
+              "isBullet": false,
               "isVisible": true,
-              "content": "Second <b>bullet</b> point."
+              "content": "Second <b>block</b> point."
             }
           ]
         },
@@ -111,14 +113,16 @@
           "createdAt": "2026-09-20T20:35:04.075Z",
           "updatedAt": "2026-09-24T18:17:31.913Z",
           "endDate": "09/2026",
-          "descriptionBullets": [
+          "descriptionBlocks": [
             {
+              "isBullet": false,
               "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
+              "isBullet": false,
               "isVisible": true,
-              "content": "Second <b>bullet</b> point."
+              "content": "Second <b>block</b> point."
             }
           ]
         }
@@ -132,30 +136,36 @@
       "iconKey": "graduation-cap",
       "displayIcon": false,
       "displayTitle": true,
+      "isCurrent": false,
       "entries": [
         {
           "id": "911d75d6-3320-4534-88b0-943943f35a33333",
           "school": "ACME",
           "isVisible": true,
-          "degree": "Bachelor of Science",
-          "field": "Computer Science",
+          "degree": "Bachelor of Science in Computer Science",
           "location": "XX, Poland",
           "createdAt": "2026-09-20T20:35:04.075Z",
           "updatedAt": "2026-09-24T18:17:31.913Z",
+          "startDate": "09/2024",
           "endDate": "09/2026",
+          "fieldVisibility": {
+            "degree": true,
+            "field": true,
+            "location": true,
+            "dates": true
+          },
           "descriptionBlocks": [
             {
-              "type": "text",
+              "isBullet": false,
               "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
-              "type": "bullet",
+              "isBullet": false,
               "isVisible": true,
-              "content": "First <b>bullet</b> point."
+              "content": "First <b>block</b> point."
             }
-          ],
-          "startDate": "09/2024"
+          ]
         }
       ]
     },
@@ -173,14 +183,14 @@
           "skillName": "Languages & Development",
           "descriptionBlocks": [
             {
-              "type": "text",
+              "isBullet": false,
               "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
-              "type": "bullet",
+              "isBullet": false,
               "isVisible": true,
-              "content": "First <b>bullet</b> point."
+              "content": "First <b>block</b> point."
             }
           ],
           "isVisible": true,

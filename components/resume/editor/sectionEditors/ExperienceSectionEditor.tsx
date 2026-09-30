@@ -1,5 +1,5 @@
 import { removeHtmlTags } from '@/lib/utils';
-import type { DescriptionBullet, ExperienceEntry, ExperienceSection } from '@/types/resume';
+import type { DescriptionBlock, ExperienceEntry, ExperienceSection } from '@/types/resume';
 import { useResume } from '../../ResumeContext';
 import VisibilityRow from './VisibilityRow';
 import { Button } from '@/components/ui/button';
@@ -82,18 +82,18 @@ export default function ExperienceSectionEditor({ section }: Props) {
               </VisibilityRow>
             )}
 
-            {entry.descriptionBullets.length > 0 && (
+            {entry.descriptionBlocks.length > 0 && (
               <div className="pl-4">
                 <div className="space-y-1">
-                  {entry.descriptionBullets.map((bullet, bulletIndex) => (
-              <DescriptionBulletEditor
-                key={`${entry.id}-${bulletIndex}`}
-                block={bullet}
+                  {entry.descriptionBlocks.map((block, blockIndex) => (
+              <DescriptionBlockEditor
+                key={`${entry.id}-${blockIndex}`}
+                block={block}
                 onChange={(updates) => {
-                  const descriptionBullets = entry.descriptionBullets.map((currentBullet, currentIndex) =>
-                    currentIndex === bulletIndex ? { ...currentBullet, ...updates } : currentBullet,
+                  const descriptionBlocks = entry.descriptionBlocks.map((currentBlock, currentIndex) =>
+                    currentIndex === blockIndex ? { ...currentBlock, ...updates } : currentBlock,
                   );
-                  updateExperienceEntry(section.id, entry.id, { descriptionBullets });
+                  updateExperienceEntry(section.id, entry.id, { descriptionBlocks });
                 }}
               />
                   ))}
@@ -107,20 +107,19 @@ export default function ExperienceSectionEditor({ section }: Props) {
   );
 }
 
-function DescriptionBulletEditor({
+function DescriptionBlockEditor({
   block,
   onChange,
 }: {
-  block: DescriptionBullet;
-  onChange: (updates: Partial<DescriptionBullet>) => void;
+  block: DescriptionBlock;
+  onChange: (updates: Partial<DescriptionBlock>) => void;
 }) {
   return (
     <VisibilityRow
-      label="description bullet"
+      label="description block"
       visible={block.isVisible}
       onToggle={() => onChange({ isVisible: !block.isVisible })}
     >
-      {<span aria-hidden="true">•</span>}
       <p className="min-w-0 flex-1">{removeHtmlTags(block.content)}</p>
     </VisibilityRow>
   );

@@ -40,13 +40,8 @@ export type SectionType =
 	| "summary"
 	| "custom";
 
-export type DescriptionBullet = {
-	isVisible: boolean;
-	content: string;
-};
-
 export type DescriptionBlock = {
-	type: "text" | "bullet";
+	isBullet: boolean;
 	isVisible: boolean;
 	content: string;
 };
@@ -65,7 +60,7 @@ export type ExperienceEntry = {
 	employerLink: string | null;
 	startDate: string | null;
 	endDate: string | null;
-	descriptionBullets: DescriptionBullet[];
+	descriptionBlocks: DescriptionBlock[];
 	location: string | null;
 	isCurrent: boolean;
 	isVisible: boolean;
@@ -77,9 +72,14 @@ export type EducationEntry = {
 	id: string;
 	school: string | null;
 	degree: string | null;
-	field: string | null;
 	startDate: string | null;
 	endDate: string | null;
+	isCurrent: boolean;
+	fieldVisibility?: {
+		degree?: boolean;
+		location?: boolean;
+		dates?: boolean;
+	};
 	descriptionBlocks: DescriptionBlock[];
 	location: string | null;
 	createdAt: string;
