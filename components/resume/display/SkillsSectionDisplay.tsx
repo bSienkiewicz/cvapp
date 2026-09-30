@@ -1,6 +1,6 @@
 import type { SkillEntry } from '@/types/resume';
 
-const Skills = ({ entry }: { entry: SkillEntry }) => {
+const SkillsSectionDisplay = ({ entry }: { entry: SkillEntry }) => {
   return (
     <div>
       <h3 className="text-xl font-semibold">
@@ -22,4 +22,4 @@ const Skills = ({ entry }: { entry: SkillEntry }) => {
   )
 }
 
-export default Skills
+export default SkillsSectionDisplay

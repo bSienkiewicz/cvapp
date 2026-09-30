@@ -1,6 +1,6 @@
 import type { ExperienceEntry } from '@/types/resume';
 
-const Experience = ({ entry }: { entry: ExperienceEntry }) => {
+const ExperienceSectionDisplay = ({ entry }: { entry: ExperienceEntry }) => {
   const dateRange = [entry.startDate, entry.isCurrent ? 'Present' : entry.endDate]
     .filter(Boolean)
     .join(' - ');
@@ -29,4 +29,4 @@ const Experience = ({ entry }: { entry: ExperienceEntry }) => {
   )
 }
 
-export default Experience
+export default ExperienceSectionDisplay

@@ -1,6 +1,6 @@
 import { config } from '@/lib/constants';
 import ResumeSection from './ResumeSection';
-import PersonalDetailsBlock from './PersonalDetailsBlock';
+import PersonalDetailsSectionDisplay from './PersonalDetailsSectionDisplay';
 import { useResume } from '../ResumeContext';
 
 type Props = {
@@ -23,11 +23,13 @@ const ResumePage = ({ page, pages, scale }: Props) => {
       }}
     >
 
-      <PersonalDetailsBlock resumeData={resumeData} />
+      <PersonalDetailsSectionDisplay resumeData={resumeData} />
 
-      <main className="flex-1 my-8 space-y-4 text-lg leading-relaxed">
+      <main className="flex-1 space-y-4 text-lg leading-relaxed flex flex-col gap-4 mt-4">
         {resumeData.sections.map((section) => (
-          <ResumeSection key={section.id} section={section} />
+          section.entries.filter((entry) => entry.isVisible).length > 0 && (
+            <ResumeSection key={section.id} section={section} />
+          )
         ))}
       </main>
 

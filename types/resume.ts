@@ -37,6 +37,7 @@ export type SectionType =
 	| "projects"
 	| "certifications"
 	| "languages"
+	| "summary"
 	| "custom";
 
 export type DescriptionBullet = {
@@ -96,6 +97,14 @@ export type SkillEntry = {
 	updatedAt: string;
 };
 
+export type SummaryEntry = {
+	id: string;
+	summary: string;
+	isVisible: boolean;
+	createdAt: string;
+	updatedAt: string;
+};
+
 export type BaseSection<TType extends SectionType, TEntry> = {
 	id: string;
 	sectionType: TType;
@@ -103,17 +112,20 @@ export type BaseSection<TType extends SectionType, TEntry> = {
 	defaultName: string;
 	iconKey: string;
 	displayIcon: boolean;
+	displayTitle: boolean;
 	entries: TEntry[];
 };
 
 export type ExperienceSection = BaseSection<"experience", ExperienceEntry>;
 export type EducationSection = BaseSection<"education", EducationEntry>;
 export type SkillsSection = BaseSection<"skills", SkillEntry>;
+export type SummarySection = BaseSection<"summary", SummaryEntry>;
 
 export type ResumeSection =
 	| ExperienceSection
 	| EducationSection
-	| SkillsSection;
+	| SkillsSection
+	| SummarySection;
 
 export type ResumeData = {
 	personalDetails: PersonalDetails

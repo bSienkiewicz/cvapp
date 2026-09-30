@@ -2,13 +2,16 @@ import { Accordion } from '@/components/ui/accordion';
 import { removeHtmlTags } from '@/lib/utils';
 import type { ResumeSection } from '@/types/resume';
 import { useResume } from '../ResumeContext';
-import ResumeEditorCard from './ResumeEditorCard';
-import ExperienceSectionEditor from './ExperienceSectionEditor';
+import ResumeEditorCard from './sectionEditors/ResumeEditorCard';
+import ExperienceSectionEditor from './sectionEditors/ExperienceSectionEditor';
+import ProfessionalSummarySectionEditor from './sectionEditors/ProfessionalSummarySectionEditor';
 
 function SectionEditorFields({ section }: { section: ResumeSection }) {
   switch (section.sectionType) {
     case 'experience':
       return <ExperienceSectionEditor section={section} />;
+    case 'summary':
+      return <ProfessionalSummarySectionEditor section={section} />;
     case 'education':
     case 'skills':
       return (

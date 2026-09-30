@@ -1,6 +1,6 @@
 import { ResumeData } from '@/types/resume'
 
-const PersonalDetailsBlock = ({ resumeData }: { resumeData: ResumeData }) => {
+const PersonalDetailsSectionDisplay = ({ resumeData }: { resumeData: ResumeData }) => {
   const detailsSeparators = ["|", "•"]
   return (
 
@@ -33,4 +33,4 @@ const PersonalDetailsBlock = ({ resumeData }: { resumeData: ResumeData }) => {
   )
 }
 
-export default PersonalDetailsBlock
+export default PersonalDetailsSectionDisplay

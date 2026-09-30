@@ -1,7 +1,7 @@
 import { removeHtmlTags } from '@/lib/utils';
-import type { ReactNode } from 'react';
 import type { DescriptionBullet, ExperienceEntry, ExperienceSection } from '@/types/resume';
-import { useResume } from '../ResumeContext';
+import { useResume } from '../../ResumeContext';
+import VisibilityRow from './VisibilityRow';
 import { Button } from '@/components/ui/button';
 import { Eye, EyeOff } from 'lucide-react';
 
@@ -44,7 +44,7 @@ export default function ExperienceSectionEditor({ section }: Props) {
           <div className="ml-4 space-y-1 text-sm">
             {entry.jobTitle && (
               <VisibilityRow
-                label="Hide position from resume"
+                label="position"
                 visible={entry.fieldVisibility?.jobTitle ?? true}
                 onToggle={() => toggleFieldVisibility(entry, 'jobTitle')}
               >
@@ -53,7 +53,7 @@ export default function ExperienceSectionEditor({ section }: Props) {
             )}
             {entry.location && (
               <VisibilityRow
-                label="Hide location from resume"
+                label="location"
                 visible={entry.fieldVisibility?.location ?? true}
                 onToggle={() => toggleFieldVisibility(entry, 'location')}
               >
@@ -62,7 +62,7 @@ export default function ExperienceSectionEditor({ section }: Props) {
             )}
             {(entry.startDate || entry.endDate || entry.isCurrent) && (
               <VisibilityRow
-                label="Hide dates from resume"
+                label="dates"
                 visible={entry.fieldVisibility?.dates ?? true}
                 onToggle={() => toggleFieldVisibility(entry, 'dates')}
               >
@@ -74,7 +74,7 @@ export default function ExperienceSectionEditor({ section }: Props) {
 
             {entry.jobDescription && (
               <VisibilityRow
-                label="Hide company description from resume"
+                label="company description"
                 visible={entry.fieldVisibility?.jobDescription ?? true}
                 onToggle={() => toggleFieldVisibility(entry, 'jobDescription')}
               >
@@ -107,34 +107,6 @@ export default function ExperienceSectionEditor({ section }: Props) {
   );
 }
 
-function VisibilityRow({
-  visible,
-  label,
-  onToggle,
-  children,
-}: {
-  visible: boolean;
-  label: string;
-  onToggle: () => void;
-  children: ReactNode;
-}) {
-  return (
-    <div className={`flex items-center gap-1 ${visible ? '' : 'opacity-60'}`}>
-      <Button
-        type="button"
-        variant="ghost"
-        size="icon-xs"
-        aria-label={visible ? label : label.replace('Hide', 'Show')}
-        title={visible ? label : label.replace('Hide', 'Show')}
-        onClick={onToggle}
-      >
-        {visible ? <Eye /> : <EyeOff />}
-      </Button>
-      <span>{children}</span>
-    </div>
-  );
-}
-
 function DescriptionBulletEditor({
   block,
   onChange,
@@ -143,19 +115,13 @@ function DescriptionBulletEditor({
   onChange: (updates: Partial<DescriptionBullet>) => void;
 }) {
   return (
-    <div className={`flex items-start gap-1 ${block.isVisible ? '' : 'opacity-60'}`}>
-      <Button
-        type="button"
-        variant="ghost"
-        size="icon-xs"
-        aria-label={block.isVisible ? 'Hide description from resume' : 'Show description on resume'}
-        title={block.isVisible ? 'Hide description from resume' : 'Show description on resume'}
-        onClick={() => onChange({ isVisible: !block.isVisible })}
-      >
-        {block.isVisible ? <Eye /> : <EyeOff />}
-      </Button>
+    <VisibilityRow
+      label="description bullet"
+      visible={block.isVisible}
+      onToggle={() => onChange({ isVisible: !block.isVisible })}
+    >
       {<span aria-hidden="true">•</span>}
       <p className="min-w-0 flex-1">{removeHtmlTags(block.content)}</p>
-    </div>
+    </VisibilityRow>
   );
 }

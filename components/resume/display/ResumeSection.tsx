@@ -1,7 +1,8 @@
 import type { ResumeSection } from "@/types/resume";
-import Education from "./EducationBlock";
-import Experience from "./ExperienceBlock";
-import Skills from "./SkillsBlock";
+import EducationSectionDisplay from "./EducationSectionDisplay";
+import ExperienceSectionDisplay from "./ExperienceSectionDisplay";
+import SkillsSectionDisplay from "./SkillsSectionDisplay";
+import ProfessionalSummarySectionDisplay from "./ProfessionalSummarySectionDisplay";
 
 type Props = {
 	section: ResumeSection;
@@ -9,29 +10,39 @@ type Props = {
 
 export default function ResumeSection({ section }: Props) {
 	return (
-		<div className="mt-6">
-			<h2 className="text-2xl font-semibold tracking-tight text-center underline">
-				{section.displayName || section.defaultName}
-			</h2>
+		<div>
+			{section.displayTitle && (
+				<h2 className="text-2xl font-semibold tracking-tight text-center underline">
+					{section.displayName || section.defaultName}
+				</h2>
+			)}
+
+			{section.sectionType === "summary" && (
+				section.entries.filter((entry) => entry.isVisible).map((entry) => (
+					<div key={entry.id} className="mt-2">
+						<ProfessionalSummarySectionDisplay entry={entry} />
+					</div>
+				)))
+}
 
 			{section.sectionType === "experience" &&
 				section.entries.filter((entry) => entry.isVisible).map((entry) => (
 					<div key={entry.id} className="mt-2">
-						<Experience entry={entry} />
+						<ExperienceSectionDisplay entry={entry} />
 					</div>
 				))}
 
 			{section.sectionType === "education" &&
 				section.entries.filter((entry) => entry.isVisible).map((entry) => (
 					<div key={entry.id} className="mt-2">
-						<Education entry={entry} />
+						<EducationSectionDisplay entry={entry} />
 					</div>
 				))}
 
 			{section.sectionType === "skills" &&
 				section.entries.filter((entry) => entry.isVisible).map((entry) => (
 					<div key={entry.id} className="mt-2">
-						<Skills entry={entry} />
+						<SkillsSectionDisplay entry={entry} />
 					</div>
 				))}
 		</div>
