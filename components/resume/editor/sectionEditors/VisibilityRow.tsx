@@ -25,14 +25,14 @@ export default function VisibilityRow({ visible, label, onToggle, children }: Vi
         title={actionLabel}
         onClick={onToggle}
       >
-        {visible ? <Eye size={16} /> : <EyeOff size={16} />}
+        {visible ? <Eye className='size-4' /> : <EyeOff className='size-4' />}
       </Button>
       <ItemContent>
-        <ItemTitle>
+        <ItemTitle className='font-normal'>
           {children}
         </ItemTitle>
       </ItemContent>
-      <ButtonGroup className='absolute top-0.5 right-0.5 opacity-0 group-hover:opacity-100'>
+      <ButtonGroup className='absolute top-0.5 right-0.5 opacity-0 group-hover:opacity-100 will-change-auto transition'>
         <Button variant="outline" size="sm"><Pencil size={16} /></Button>
         <Button variant="outline" size="sm"><Trash size={16} className='text-red-900' /></Button>
       </ButtonGroup>

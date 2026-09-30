@@ -1,9 +1,9 @@
-import { removeHtmlTags } from '@/lib/utils';
-import type { DescriptionBlock, ExperienceEntry, ExperienceSection } from '@/types/resume';
+import type { ExperienceEntry, ExperienceSection } from '@/types/resume';
 import { useResume } from '../../ResumeContext';
 import VisibilityRow from './VisibilityRow';
-import { Button } from '@/components/ui/button';
-import { Eye, EyeOff } from 'lucide-react';
+import DescriptionBlocksEditor from './DescriptionBlocksEditor';
+import EntryVisibilityHeader from './EntryVisibilityHeader';
+import { removeHtmlTags } from '@/lib/utils';
 
 type Props = {
   section: ExperienceSection;
@@ -25,21 +25,12 @@ export default function ExperienceSectionEditor({ section }: Props) {
     <div className="space-y-4">
       {section.entries.map((entry) => (
         <article key={entry.id} className={entry.isVisible ? '' : 'opacity-60'}>
-          <div className="flex items-center gap-1">
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon-xs"
-              aria-label={entry.isVisible ? 'Hide job from resume' : 'Show job on resume'}
-              title={entry.isVisible ? 'Hide job from resume' : 'Show job on resume'}
-              onClick={() => updateExperienceEntry(section.id, entry.id, { isVisible: !entry.isVisible })}
-            >
-              {entry.isVisible ? <Eye /> : <EyeOff />}
-            </Button>
-            <h3 className="text-sm font-semibold">
-              {entry.employer || 'Company name'}
-            </h3>
-          </div>
+          <EntryVisibilityHeader
+            label="job entry"
+            title={entry.employer || 'Company name'}
+            visible={entry.isVisible}
+            onToggle={() => updateExperienceEntry(section.id, entry.id, { isVisible: !entry.isVisible })}
+          />
 
           <div className="ml-4 space-y-1 text-sm">
             {entry.jobTitle && (
@@ -82,45 +73,13 @@ export default function ExperienceSectionEditor({ section }: Props) {
               </VisibilityRow>
             )}
 
-            {entry.descriptionBlocks.length > 0 && (
-              <div className="pl-4">
-                <div className="space-y-1">
-                  {entry.descriptionBlocks.map((block, blockIndex) => (
-              <DescriptionBlockEditor
-                key={`${entry.id}-${blockIndex}`}
-                block={block}
-                onChange={(updates) => {
-                  const descriptionBlocks = entry.descriptionBlocks.map((currentBlock, currentIndex) =>
-                    currentIndex === blockIndex ? { ...currentBlock, ...updates } : currentBlock,
-                  );
-                  updateExperienceEntry(section.id, entry.id, { descriptionBlocks });
-                }}
-              />
-                  ))}
-                </div>
-              </div>
-            )}
+            <DescriptionBlocksEditor
+              blocks={entry.descriptionBlocks}
+              onChange={(descriptionBlocks) => updateExperienceEntry(section.id, entry.id, { descriptionBlocks })}
+            />
           </div>
         </article>
       ))}
     </div>
-  );
-}
-
-function DescriptionBlockEditor({
-  block,
-  onChange,
-}: {
-  block: DescriptionBlock;
-  onChange: (updates: Partial<DescriptionBlock>) => void;
-}) {
-  return (
-    <VisibilityRow
-      label="description block"
-      visible={block.isVisible}
-      onToggle={() => onChange({ isVisible: !block.isVisible })}
-    >
-      <p className="min-w-0 flex-1">{removeHtmlTags(block.content)}</p>
-    </VisibilityRow>
   );
 }
