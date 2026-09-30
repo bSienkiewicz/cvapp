@@ -9,11 +9,12 @@ import {
   type SetStateAction,
 } from "react";
 import ResumeJson from "@/data/resume/resumeData.json";
-import type { EducationEntry, ExperienceEntry, ResumeData, SummaryEntry } from "@/types/resume";
+import type { EducationEntry, ExperienceEntry, PersonalDetails, ResumeData, SummaryEntry } from "@/types/resume";
 
 type ResumeContextValue = {
   resumeData: ResumeData;
   setResumeData: Dispatch<SetStateAction<ResumeData>>;
+  updatePersonalDetails: (updates: Partial<PersonalDetails>) => void;
   updateExperienceEntry: (sectionId: string, entryId: string, updates: Partial<ExperienceEntry>) => void;
   updateSummaryEntry: (sectionId: string, entryId: string, updates: Partial<SummaryEntry>) => void;
   updateEducationEntry: (sectionId: string, entryId: string, updates: Partial<EducationEntry>) => void;
@@ -23,6 +24,12 @@ const ResumeContext = createContext<ResumeContextValue | undefined>(undefined);
 
 export function ResumeProvider({ children }: { children: ReactNode }) {
   const [resumeData, setResumeData] = useState<ResumeData>(ResumeJson as ResumeData);
+  const updatePersonalDetails: ResumeContextValue["updatePersonalDetails"] = (updates) => {
+    setResumeData((current) => ({
+      ...current,
+      personalDetails: { ...current.personalDetails, ...updates },
+    }));
+  };
   const updateExperienceEntry: ResumeContextValue["updateExperienceEntry"] = (sectionId, entryId, updates) => {
     setResumeData((current) => ({
       ...current,
@@ -100,7 +107,7 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <ResumeContext.Provider value={{ resumeData, setResumeData, updateExperienceEntry, updateSummaryEntry, updateEducationEntry }}>
+    <ResumeContext.Provider value={{ resumeData, setResumeData, updatePersonalDetails, updateExperienceEntry, updateSummaryEntry, updateEducationEntry }}>
       {children}
     </ResumeContext.Provider>
   );

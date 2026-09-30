@@ -4,6 +4,7 @@ export type PersonalDetailKey =
 	| "address"
 	| "website";
 
+export type PersonalDetailsVisibilityKey = "fullName" | "jobTitle" | PersonalDetailKey;
 
 export type PersonalDetails = {
 	age: number | null;
@@ -27,7 +28,8 @@ export type PersonalDetails = {
 	fullName: string | null;
 	jobTitle: string | null;
 	displayEmail: string | null;
-	detailsOrder: PersonalDetailKey[]
+	detailsOrder: PersonalDetailKey[];
+	fieldVisibility?: Partial<Record<PersonalDetailsVisibilityKey, boolean>>;
 }
 
 export type SectionType =

@@ -25,6 +25,14 @@
       "phone",
       "address"
     ],
+    "fieldVisibility": {
+      "fullName": true,
+      "jobTitle": true,
+      "displayEmail": true,
+      "phone": true,
+      "address": true,
+      "website": true
+    },
     "displayEmail": "xxx@gmail.com"
   },
   "sections": [
@@ -40,14 +48,14 @@
         {
           "id": "911d75d6-3320-4534-88b0-943943sum-2",
           "summary": "I am a highly skilled and motivated Application Support Engineer with a strong background in providing technical support and troubleshooting for software applications. With a passion for problem-solving and a commitment to delivering exceptional customer service, I excel in diagnosing and resolving complex issues, ensuring optimal performance and user satisfaction. My expertise includes analyzing system logs, identifying root causes, and implementing effective solutions to enhance application functionality. I thrive in fast-paced environments, collaborating with cross-functional teams to deliver timely resolutions and maintain high levels of customer satisfaction. With excellent communication skills and a proactive approach, I am dedicated to continuously improving processes and contributing to the success of the organization.",
-          "isVisible": true,
+          "isVisible": false,
           "createdAt": "2026-09-20T20:35:04.075Z",
           "updatedAt": "2026-09-24T18:17:31.913Z"
         },
         {
           "id": "911d75d6-3320-4534-88b0-943943sum",
           "summary": "Another summary",
-          "isVisible": false,
+          "isVisible": true,
           "createdAt": "2026-09-20T20:35:04.075Z",
           "updatedAt": "2026-09-24T18:17:31.913Z"
         }

@@ -6,6 +6,7 @@ import ResumeEditorCard from './sectionEditors/ResumeEditorCard';
 import ExperienceSectionEditor from './sectionEditors/ExperienceSectionEditor';
 import ProfessionalSummarySectionEditor from './sectionEditors/ProfessionalSummarySectionEditor';
 import EducationSectionEditor from './sectionEditors/EducationSectionEditor';
+import PersonalDetailsSectionEditor from './sectionEditors/PersonalDetailsSectionEditor';
 
 function SectionEditorFields({ section }: { section: ResumeSection }) {
   switch (section.sectionType) {
@@ -36,7 +37,7 @@ const ResumeEditor = () => {
   return (
     <Accordion defaultValue={["item-0"]} className="flex flex-col gap-2">
       <ResumeEditorCard idx={0} title="Personal Information">
-        siemaneczko
+        <PersonalDetailsSectionEditor personalDetails={resumeData.personalDetails} />
       </ResumeEditorCard>
 
       {resumeData.sections.map((section, idx) => (
