@@ -11,14 +11,14 @@ const Education = ({ entry }: { entry: EducationEntry }) => {
       </p>
       <p className="text-gray-500">
         {entry.startDate} - {entry.endDate || "Present"}
-      </p>  
-      {entry.descriptionBlocks?.map((block, index) => {
-        if (block.type === "text") {
-          return <p key={index} dangerouslySetInnerHTML={{ __html: block.content }} />;
-        } else if (block.type === "bullet") {
-          return <ul key={index}><li dangerouslySetInnerHTML={{ __html: block.content }} /></ul>;
-        }
-      })}
+      </p>
+      {entry.descriptionBlocks?.filter((block) => block.isVisible).map((block, index) =>
+        block.type === 'bullet' ? (
+          <ul key={index}><li dangerouslySetInnerHTML={{ __html: block.content }} /></ul>
+        ) : (
+          <p key={index} dangerouslySetInnerHTML={{ __html: block.content }} />
+        ),
+      )}
     </div>
   )
 }

@@ -15,21 +15,21 @@ export default function ResumeSection({ section }: Props) {
 			</h2>
 
 			{section.sectionType === "experience" &&
-				section.entries.map((entry) => (
+				section.entries.filter((entry) => entry.isVisible).map((entry) => (
 					<div key={entry.id} className="mt-2">
 						<Experience entry={entry} />
 					</div>
 				))}
 
 			{section.sectionType === "education" &&
-				section.entries.map((entry) => (
+				section.entries.filter((entry) => entry.isVisible).map((entry) => (
 					<div key={entry.id} className="mt-2">
 						<Education entry={entry} />
 					</div>
 				))}
 
 			{section.sectionType === "skills" &&
-				section.entries.map((entry) => (
+				section.entries.filter((entry) => entry.isVisible).map((entry) => (
 					<div key={entry.id} className="mt-2">
 						<Skills entry={entry} />
 					</div>

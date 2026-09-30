@@ -31,60 +31,70 @@
     {
       "id": "911d75d6-3320-4534-88b0-943943f35123123123",
       "sectionType": "experience",
-      "displayName": "Professional Experience",
+      "displayName": "Work Experience",
       "defaultName": "Experience",
       "iconKey": "briefcase",
       "displayIcon": false,
       "entries": [
         {
-          "id": "911d75d6-3320-4534-88b0-943943f35a34",
-          "employer": "ACME",
+          "id": "911d75d6-3320-4534-88b0-943943f35a342asdasd",
+          "employer": "ACME2",
           "isVisible": true,
           "jobTitle": "Customer Support Engineer",
+          "jobDescription": "Description of the job",
+          "fieldVisibility": {
+            "jobTitle": true,
+            "jobDescription": true,
+            "location": true,
+            "dates": true
+          },
+          "startDate": "09/2024",
+          "isCurrent": false,
+          "employerLink": "",
           "location": "XX, Poland",
           "createdAt": "2026-09-20T20:35:04.075Z",
           "updatedAt": "2026-09-24T18:17:31.913Z",
           "endDate": "09/2026",
-          "descriptionBlocks": [
+          "descriptionBullets": [
             {
-              "type": "text",
               "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
-              "type": "bullet",
               "isVisible": true,
-              "content": "First <b>bullet</b> point."
+              "content": "Second <b>bullet</b> point."
             }
-          ],
-          "employerLink": "",
-          "startDate": "09/2024",
-          "isCurrent": false
+          ]
         },
         {
           "id": "911d75d6-3320-4534-88b0-943943f35a342",
           "employer": "ACME2",
           "isVisible": true,
           "jobTitle": "Customer Support Engineer",
+          "jobDescription": "Description of the job",
+          "fieldVisibility": {
+            "jobTitle": true,
+            "jobDescription": true,
+            "location": true,
+            "dates": true
+          },
+          "startDate": "09/2024",
+          "isCurrent": false,
+          "employerLink": "",
           "location": "XX, Poland",
           "createdAt": "2026-09-20T20:35:04.075Z",
           "updatedAt": "2026-09-24T18:17:31.913Z",
           "endDate": "09/2026",
-          "descriptionBlocks": [
+          "descriptionBullets": [
             {
-              "type": "text",
               "isVisible": true,
               "content": "Description of <b><i>the job</i></b>"
             },
             {
-              "type": "bullet",
               "isVisible": true,
-              "content": "First <b>bullet</b> point."
+              "content": "Second <b>bullet</b> point."
             }
-          ],
-          "employerLink": "",
-          "startDate": "09/2024",
-          "isCurrent": false
+          ]
         }
       ]
     },

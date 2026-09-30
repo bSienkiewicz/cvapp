@@ -15,7 +15,7 @@ function SectionEditorFields({ section }: { section: ResumeSection }) {
         <div className="space-y-2">
           {section.entries.map((entry) => (
             <div key={entry.id}>
-              {entry.descriptionBlocks.map((block, index) => (
+              {entry.descriptionBlocks?.map((block, index) => (
                 <p key={index}>{removeHtmlTags(block.content)}</p>
               ))}
             </div>
@@ -30,10 +30,14 @@ const ResumeEditor = () => {
 
   return (
     <Accordion defaultValue={["item-0"]} className="flex flex-col gap-2">
+      <ResumeEditorCard idx={0} title="Personal Information">
+        siemaneczko
+      </ResumeEditorCard>
+
       {resumeData.sections.map((section, idx) => (
         <ResumeEditorCard
           key={section.id}
-          idx={idx}
+          idx={idx + 1}
           title={section.displayName || section.defaultName}
         >
           <SectionEditorFields section={section} />

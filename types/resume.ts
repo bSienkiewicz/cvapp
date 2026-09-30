@@ -39,6 +39,11 @@ export type SectionType =
 	| "languages"
 	| "custom";
 
+export type DescriptionBullet = {
+	isVisible: boolean;
+	content: string;
+};
+
 export type DescriptionBlock = {
 	type: "text" | "bullet";
 	isVisible: boolean;
@@ -49,10 +54,17 @@ export type ExperienceEntry = {
 	id: string;
 	jobTitle: string | null;
 	employer: string | null;
+	jobDescription?: string | null;
+	fieldVisibility?: {
+		jobTitle?: boolean;
+		jobDescription?: boolean;
+		location?: boolean;
+		dates?: boolean;
+	};
 	employerLink: string | null;
 	startDate: string | null;
 	endDate: string | null;
-	descriptionBlocks: DescriptionBlock[];
+	descriptionBullets: DescriptionBullet[];
 	location: string | null;
 	isCurrent: boolean;
 	isVisible: boolean;
@@ -80,6 +92,8 @@ export type SkillEntry = {
 	descriptionBlocks: DescriptionBlock[];
 	isVisible: boolean;
 	proficiencyLevel: number | null;
+	createdAt: string;
+	updatedAt: string;
 };
 
 export type BaseSection<TType extends SectionType, TEntry> = {
